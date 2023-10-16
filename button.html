@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.btn-3d{
+			position: relative;
+			padding: 10px 20px;
+			color: #fff;
+			background-color: #0077cc;
+			border: none;
+			cursor: pointer;
+		}
+		.btn-3d::before{
+			content: "";
+			position: absolute;
+			top: 100%;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #005599;
+			/* transform: translateY(-100%); */
+			transition: transform 0.3s;
+		}
+
+		/* .btn-3d:hover::before{
+			transform: translateY(0);
+		} */
+	</style>
+</head>
+<body>
+	<div class="btn-3d">
+		<h1>ee</h1>
+	</div>
+</body>
+</html>
