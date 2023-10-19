@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+		  height: 200px;
+		  background: beige;
+		}
+	    
+		.dot {
+		  height: 8px;
+		  width: 8px;
+		  border-radius: 4px; /* rounds corners */
+		  background: blue;
+		  position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<a href="https://developer.mozilla.org/">MDN</a>
+	<p id="myElement">Time warp</p>
+
+	<script src="add.js">
+	</script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background: beige;
+    }
+
+    .draggable {
+      width: 50px;
+      height: 50px;
+      background: blue;
+      position: absolute;
+      cursor: grab; /* Change cursor to indicate draggability */
+    }
+  </style>
+</head>
+<body>
+  <div class="draggable" id="draggableElement">Drag me!</div>
+  <script>
+    let isDragging = false;
+    let offset = { x: 0, y: 0 };
+    const draggableElement = document.getElementById("draggableElement");
+
+    draggableElement.addEventListener("mousedown", (event) => {
+      isDragging = true;
+
+      // Calculate the offset between the mouse click and the top-left corner of the element
+      offset.x = event.clientX - draggableElement.getBoundingClientRect().left;
+      offset.y = event.clientY - draggableElement.getBoundingClientRect().top;
+
+      draggableElement.style.cursor = "grabbing"; /* Change cursor while dragging */
+    });
+
+    document.addEventListener("mousemove", (event) => {
+      if (!isDragging) return;
+
+      // Move the element with the mouse
+      draggableElement.style.left = (event.clientX - offset.x) + "px";
+      draggableElement.style.top = (event.clientY - offset.y) + "px";
+    });
+
+    document.addEventListener("mouseup", () => {
+      isDragging = false;
+      draggableElement.style.cursor = "grab";
+    });
+  </script>
+</body>
+</html> -->

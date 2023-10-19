@@ -26,3 +26,18 @@ var ships = [{ locations: ["10", "20", "30"], hits: ["", "", ""] },
 // view.displayMiss("25");
 // view.displayHit("26");
 // view.displayMessage("Tap tap, is this thing on?");
+
+// Event listener for keydown
+document.addEventListener("keydown", function(event) {
+	if (event.key === "a") {
+	  document.body.style.backgroundColor = "aquamarine";
+	}
+});
+      
+// Event listener for keyup (optional)
+document.addEventListener("keyup", function(event) {
+	if (event.key === "a") {
+	  document.body.style.backgroundColor = "";
+	}
+});
+      

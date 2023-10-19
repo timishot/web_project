@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<p id="myElement">Drag the bar to change the width:</p>
+	<div style="background-color: orange; width: 60px; height: 20px;"></div>
+	<script>
+		let lastX; // Tracks the last observes mouse  x position
+		let bar = document.querySelector("div");
+		bar.addEventListener("mousedown", e=>{
+			if (e.button == 0){
+				lastX = e.clientX;
+				window.addEventListener("mousemove", moved);
+				e.preventDefault() // prevent selection
+			}
+		})
+
+		function moved(event){
+			if (event.button == 0){
+				let dist = event.clientX - lastX; // Calculate the distance correctly
+				let newWidth = Math.max(10, bar.offsetWidth + dist);
+				let maxWidth = window.innerWidth - bar.getBoundingClientRect().left;
+				newWidth = Math.min(maxWidth, Math.max(10, newWidth));
+				bar.style.width = newWidth + "px";
+				lastX = event.clientX;
+		
+			} else{
+				window.removeEventListener("mousemove", moved);
+			}
+		}
+		document.addEventListener("mouseup", () => {
+			window.removeEventListener("mousemove", moved);
+		});
+
+		const element = document.getElementById("myElement");
+		const width = element.offsetWidth;
+
+		alert("Element's offsetWidth: " + width + " pixels");
+	</script>
+</body>
+</html>
