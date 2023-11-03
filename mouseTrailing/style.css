@@ -1,0 +1,7 @@
+.trail {
+	width: 10px;
+	height: 10px;
+	background-color: #ff0000; /* Red color */
+	position: absolute;
+	border-radius: 50%; /* Create circular shape */
+}

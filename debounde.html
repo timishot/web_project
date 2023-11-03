@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=twe, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<textarea name="" id="" cols="30" rows="10">Type someting here</textarea>
+	<script>
+		let textarea = document.querySelector("textarea");
+		let timeout;
+		textarea.addEventListener("input", ()=>{
+			clearTimeout(timeout);
+			timeout = setTimeout(()=> console.log("Typed!"), 500)
+		})
+
+		function debounce(func, delay) {
+			let timer;
+			return function () {
+				clearTimeout(timer);
+				timer = setTimeout(() => {
+					func.apply(this, arguments);
+				}, delay);
+			};
+		}
+
+		let scheduled = null;
+		window.addEventListener("mousemove", event => {
+			if (!scheduled) {
+				setTimeout(() => {
+					document.body.textContent =
+						`Mouse at ${scheduled.pageX}, ${scheduled.pageY}`;
+					scheduled = null;
+				}, 250);
+			}
+			scheduled = event;
+		});
+
+		// Example usage
+		const debouncedFunction = debounce(() => {
+			console.log("Debounced function executed.");
+		}, 300); // Delay of 300 milliseconds
+
+		// Attach the debounced function to an event, like scroll or input
+		window.addEventListener("scroll", debouncedFunction);
+	</script>
+</body>
+</html>

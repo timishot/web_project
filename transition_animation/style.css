@@ -1,0 +1,45 @@
+.colors{
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	overflow: hidden;
+}
+
+.color{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	inset: 0;
+	animation-name: fill;
+	animation-duration: 500ms;
+	animation-timing-function: ease-out;
+	animation-fill-mode: forwards;
+	transform: translateX(100%);
+	animation-play-state: paused;
+}
+
+.red{
+	background-color: red;
+}
+
+.yellow{
+	z-index: 2;
+	background-color: yellow;
+	animation-delay: 100ms;
+}
+
+.blue{
+	z-index: 3;
+	background-color: blue;
+	animation-delay: 200ms;
+}
+
+
+@keyframes fill {
+	0% {
+		transform: translateX(100%);
+	}
+	100%{
+		transform: translateX(0%);
+	}
+}

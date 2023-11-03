@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #balloon {
+      font-size: 20px; /* Initial size */
+      display: inline-block;
+      transition: font-size 0.1s;
+    }
+  </style>
+</head>
+<body>
+  <div id="balloon">🎈</div>
+
+  <script>
+    const balloon = document.getElementById("balloon");
+    let size = 20; // Initial size in pixels
+
+    // Event listener for handling arrow key presses
+    window.addEventListener("keydown", (event)=>{
+	if (event.key === "ArrowUp"){
+		inflate();
+	} else if(event.key === "ArrowDown"){
+		deflate();
+	}
+    })
+    //inflate
+    const inflate = ()=>{
+	size *= 1.1;
+	updateballonsize();
+    }
+    //deflate
+    const deflate = ()=>{
+	size /= 1.1
+	updateballonsize();
+	if (size < 10){
+		explodeBallon();
+	}
+    }
+    //explodeBallon
+    const explodeBallon  = ()=>{
+	balloon.textContent= ""
+	window.removeEventListener("keydown", event)
+    }
+    
+    //updateballonsize
+    const updateballonsize = ()=>{
+	balloon.style.fontSize = size + "px";
+    }
+  </script>
+</body>
+</html>

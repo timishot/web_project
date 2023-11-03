@@ -5,11 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<style>
-		dot{
+		.dot {
 			position: absolute;
 			display: block;
 			border: 2px solid red;
-			border-radius: 50px;
+			border-radius: 50%;
 			height: 100px;
 			width: 100px;
 		}
@@ -18,22 +18,23 @@
 <body>
 	<p>Touch this page</p>
 	<script>
-		function update(event){
-			for (let dot; dot = document.querySelector("dot");){
-				dot.remove();
-			}
-			for (let i = 0; i < event.touches.length; i++){
-				let {pageX, pageY} = event.touches[i];
-				let dot = document.createElement("dot");
+		function update(event) {
+			// Remove all existing dot elements
+			document.querySelectorAll(".dot").forEach(dot => dot.remove());
+
+			for (let i = 0; i < event.touches.length; i++) {
+				let { pageX, pageY } = event.touches[i];
+				let dot = document.createElement("div");
+				dot.className = "dot"; // Use class name, not tag name
 				dot.style.left = (pageX - 50) + "px";
-				dot.style.top =(pageY - 50) + "px";
+				dot.style.top = (pageY - 50) + "px";
 				document.body.appendChild(dot);
 			}
 		}
+
 		window.addEventListener("touchstart", update);
 		window.addEventListener("touchmove", update);
 		window.addEventListener("touchend", update);
 	</script>
-	
 </body>
 </html>
